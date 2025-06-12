@@ -1,0 +1,171 @@
+### 构建输出 ###
+
+# Maven 构建输出
+target/
+**/target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+build/
+**/build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Gradle 构建输出 (如果使用)
+.gradle/
+build/
+!src/**/build/  # 保留源代码目录下的构建目录
+
+# 通用构建输出
+bin/
+out/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.log
+
+### Maven 特定 ###
+# Maven 包装器
+.mvn/
+mvnw
+mvnw.cmd
+!.mvn/wrapper/maven-wrapper.jar  # 保留必要的包装器文件
+
+# Maven 依赖检查
+dependency-reduced-pom.xml
+
+### IDE 配置 ###
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+out/
+.idea/libraries/
+.idea/shelf/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/datasources.xml
+.idea/dataSources.ids
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/caches/
+
+# Eclipse
+.settings/
+.project
+.classpath
+.factorypath
+.springBeans
+.sts4-cache
+bin/
+.metadata/
+
+# NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+nbactions.xml
+
+# VS Code
+.vscode/
+!.vscode/settings.json  # 保留共享的设置
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### 操作系统文件 ###
+# Mac OS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+
+### 日志文件 ###
+*.log
+logs/
+**/logs/
+*.log.*
+*.log.gz
+*.log.[0-9]*
+
+### 测试相关 ###
+# Jacoco 覆盖率报告 (自动生成)
+**/jacoco.exec
+**/jacoco-it.exec
+**/coverage/
+
+# 测试输出
+**/test-output/
+**/test-results/
+
+### 环境文件 ###
+# 敏感配置
+.env
+*.env
+.env.local
+.env.*.local
+/config/application-*.properties
+/config/application-*.yml
+!config/application-example.properties  # 保留示例文件
+
+# 密钥文件
+*.key
+*.pem
+*.cert
+*.jks
+*.keystore
+*.truststore
+
+### 开发工具 ###
+# Spring Boot DevTools
+.spring-boot-devtools.*
+
+# Lombok 配置
+#lombok.config
+
+### 其他 ###
+# 临时文件
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# 包管理文件
+package-lock.json
+yarn.lock
+
+# 数据库文件
+#*.db
+#*.sqlite
+#*.h2.db
+
+# 文档文件
+#**/*.doc
+#**/*.docx
+#**/*.xls
+#**/*.xlsx
+#**/*.ppt
+#**/*.pptx
+
+# 压缩文件
+*.zip
+*.tar
+*.gz

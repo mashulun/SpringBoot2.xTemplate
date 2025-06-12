@@ -1,0 +1,65 @@
+# Spring Boot 主配置 (YAML)
+spring:
+  application:
+    name: my-spring-app  # 应用名称
+
+  # 服务器配置
+  server:
+    port: 8080           # 服务端口
+    servlet:
+      context-path: /api # API基础路径
+
+  # 数据源配置 (MySQL 示例)
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydb?useSSL=false&serverTimezone=UTC
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # JPA/Hibernate 配置
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update  # none | validate | update | create | create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  # Redis 配置 (可选)
+  redis:
+    host: localhost
+    port: 6379
+
+# Actuator 监控端点配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'     # 暴露所有端点
+  endpoint:
+    health:
+      show-details: always
+    info:
+      enabled: true
+
+# 自定义配置示例
+app:
+  security:
+    jwt-secret: mySecretKey
+  api:
+    version: v1
+    max-page-size: 100
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    org:
+      springframework: INFO
+      hibernate: INFO
+    com:
+      myapp: DEBUG
+  file:
+    name: logs/application.log
+    path: ./logs
