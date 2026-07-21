@@ -12,15 +12,23 @@ spring:
   # 数据源配置 (MySQL 示例)
   datasource:
     url: jdbc:mysql://localhost:3306/mydb?useSSL=false&serverTimezone=UTC
-    username: root
-    password: password
+    # 通过环境变量 DB_USERNAME 覆盖，默认 root
+    username: ${DB_USERNAME:root}
+    # 通过环境变量 DB_PASSWORD 覆盖，默认 password
+    password: ${DB_PASSWORD:password}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   # JPA/Hibernate 配置
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: update  # none | validate | update | create | create-drop
+      # ddl-auto 选项说明:
+      #   none        - 不做任何操作（生产环境推荐）
+      #   validate    - 仅校验 schema 是否与实体一致（推荐用于生产/测试）
+      #   update      - 自动更新 schema（仅限开发环境）
+      #   create      - 每次启动重新创建 schema
+      #   create-drop - 启动时创建，关闭时删除（仅限单元测试）
+      ddl-auto: validate
     show-sql: true
     properties:
       hibernate:
@@ -36,17 +44,18 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'     # 暴露所有端点
+        include: health,info,metrics
   endpoint:
     health:
-      show-details: always
+      show-details: when-authorized
     info:
       enabled: true
 
 # 自定义配置示例
 app:
   security:
-    jwt-secret: mySecretKey
+    # 通过环境变量 JWT_SECRET 覆盖，默认 mySecretKey（生产环境务必修改）
+    jwt-secret: ${JWT_SECRET:mySecretKey}
   api:
     version: v1
     max-page-size: 100
@@ -58,8 +67,7 @@ logging:
     org:
       springframework: INFO
       hibernate: INFO
-    com:
-      myapp: DEBUG
+      example: DEBUG
   file:
     name: logs/application.log
     path: ./logs
