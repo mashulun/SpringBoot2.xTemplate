@@ -1,5 +1,7 @@
 # Spring Boot 2.x 项目模板
 
+![GitHub Release](https://img.shields.io/github/v/release/mashulun/SpringBoot2.xTemplate) ![License](https://img.shields.io/github/license/mashulun/SpringBoot2.xTemplate) ![CI](https://github.com/mashulun/SpringBoot2.xTemplate/actions/workflows/ci.yml/badge.svg)
+
 基于 Spring Boot 2.7.18（2.x 系列最终稳定版）的企业级项目起步模板，预置了生产环境所需的基础配置、统一响应封装和全局异常处理。
 
 ## 环境要求
